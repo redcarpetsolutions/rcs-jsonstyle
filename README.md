@@ -2,6 +2,11 @@
 
 A Json Response module for ExpressJS. Used by [Red Carpet Solutions](https://github.com/redcarpetsolutions) To standardize Json Responses from the server
 
+## Installation
+```bash
+npm i -S rcs-jsonstyle
+```
+
 ## How to Use
 
 This Module only works with ExpressJS.
