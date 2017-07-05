@@ -40,6 +40,8 @@ app.get('/someroutes',(req,res)=>{
 
 > you can check the modules/res.module.js file to see all the responses available (We covered the most frequent ones)
 
+## More Responses
+Please leave an Issue with the response you want and we will add it to the library. [Issues](https://github.com/redcarpetsolutions/rcs-jsonstyle/issues)
 
 ## Red Carpet Solutions
 
