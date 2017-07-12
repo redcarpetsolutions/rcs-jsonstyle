@@ -63,9 +63,9 @@ module.exports.error = (res, err, warnings) => {
     });
 }
 
-module.exports.unauthorized = (res, msg, warnings) => {
-    if (!msg) {
-        msg = "You are not Authorized to access this content";
+module.exports.unauthorized = (res, err, warnings) => {
+    if (!err) {
+        err = "You are not Authorized to access this content";
     }
     res.set('Content-Type', 'application/json');
     if (!warnings) {
@@ -79,9 +79,9 @@ module.exports.unauthorized = (res, msg, warnings) => {
     });
 }
 
-module.exports.badRequest = (res, msg, warnings) => {
-    if (!msg) {
-        msg = "The Information you provided is incomplete";
+module.exports.badRequest = (res, err, warnings) => {
+    if (!err) {
+        err = "The Information you provided is incomplete";
     }
     res.set('Content-Type', 'application/json');
     if (!warnings) {

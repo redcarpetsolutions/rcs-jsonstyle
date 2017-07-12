@@ -1,6 +1,6 @@
 {
   "name": "rcs-jsonstyle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Small Module To standardize Json responses from servers",
   "main": "index.js",
   "author": "Khaled Romdhane <heiyukidev@gmail.com>",
