@@ -5,7 +5,7 @@ module.exports.setProvider = (providername) => {
     provider = providername;
 }
 module.exports.setWarnings = (warnings) => {
-    defaultWarnings = warn;
+    defaultWarnings = warnings;
 }
 
 module.exports.json = (res, data, warnings) => {
