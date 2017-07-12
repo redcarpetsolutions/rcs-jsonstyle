@@ -15,6 +15,7 @@ module.exports.json = (res, data, warnings) => {
     }
     res.status(200).send({
         "data": data,
+        "warnings": warnings,
         "status": 200,
         "provider": provider
     });
