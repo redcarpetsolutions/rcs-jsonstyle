@@ -1,12 +1,18 @@
 var provider = "Red Carpet Solutions";
+var defaultWarnings = [];
 
 module.exports.setProvider = (providername) => {
     provider = providername;
 }
+module.exports.setWarnings = (warnings) => {
+    defaultWarnings = warn;
+}
 
-
-module.exports.json = (res, data) => {
+module.exports.json = (res, data, warnings) => {
     res.set('Content-Type', 'application/json');
+    if (!warnings) {
+        warnings = defaultWarnings;
+    }
     res.status(200).send({
         "data": data,
         "status": 200,
@@ -15,65 +21,75 @@ module.exports.json = (res, data) => {
 }
 
 
-module.exports.created = (res, msg) => {
+module.exports.created = (res, data, warnings) => {
     res.set('Content-Type', 'application/json');
+    if (!warnings) {
+        warnings = defaultWarnings;
+    }
     res.status(201).send({
-        "success": {
-            "message": msg
-        },
+        "data": data,
+        "warnings": warnings,
         "status": 201,
         "provider": provider
     });
 }
 
-module.exports.accepted = (res, msg) => {
+module.exports.accepted = (res, data, warnings) => {
     res.set('Content-Type', 'application/json');
+    if (!warnings) {
+        warnings = defaultWarnings;
+    }
     res.status(202).send({
-        "success": {
-            "message": msg
-        },
+        "data": data,
+        "warnings": warnings,
         "status": 202,
         "provider": provider
     });
 }
 
-module.exports.error = (res, err) => {
-    if(!err){
+module.exports.error = (res, err, warnings) => {
+    if (!err) {
         err = "An Error has Occured, Please try again";
     }
     res.set('Content-Type', 'application/json');
+    if (!warnings) {
+        warnings = defaultWarnings;
+    }
     res.status(500).send({
-        "error": {
-            "message": err
-        },
+        "errors": err,
+        "warnings": warnings,
         "status": 500,
         "provider": provider
     });
 }
 
-module.exports.unauthorized = (res, msg) => {
-    if(!msg){
+module.exports.unauthorized = (res, msg, warnings) => {
+    if (!msg) {
         msg = "You are not Authorized to access this content";
     }
     res.set('Content-Type', 'application/json');
+    if (!warnings) {
+        warnings = defaultWarnings;
+    }
     res.status(401).send({
-        "error": {
-            "message": msg
-        },
+        "errors": err,
+        "warnings": warnings,
         "status": 401,
         "provider": provider
     });
 }
 
-module.exports.badRequest = (res, msg) => {
-    if(!msg){
+module.exports.badRequest = (res, msg, warnings) => {
+    if (!msg) {
         msg = "The Information you provided is incomplete";
     }
     res.set('Content-Type', 'application/json');
+    if (!warnings) {
+        warnings = defaultWarnings;
+    }
     res.status(400).send({
-        "error": {
-            "message": msg
-        },
+        "errors": err,
+        "warnings": warnings,
         "status": 400,
         "provider": provider
     });
